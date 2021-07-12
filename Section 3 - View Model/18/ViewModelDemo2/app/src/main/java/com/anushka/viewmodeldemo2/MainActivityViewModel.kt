@@ -1,0 +1,15 @@
+package com.anushka.viewmodeldemo2
+
+import androidx.lifecycle.ViewModel
+
+class MainActivityViewModel(startingTotal: Int) : ViewModel() {
+    private var total = startingTotal
+
+    fun getTotal():Int{
+        return total
+    }
+
+    fun setTotal(input:Int){
+        total +=input
+    }
+}
