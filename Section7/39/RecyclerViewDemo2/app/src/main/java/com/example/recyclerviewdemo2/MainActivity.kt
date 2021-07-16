@@ -34,7 +34,11 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-            recyclerView.adapter = MyRecyclerViewAdapter(dummyList, {selectedItem: Fruit -> onItemSelected(selectedItem)})
+            recyclerView.adapter = MyRecyclerViewAdapter(dummyList) { selectedItem: Fruit ->
+                onItemSelected(
+                    selectedItem
+                )
+            }
         }
     }
     private fun onItemSelected(fruit: Fruit) {
