@@ -1,10 +1,9 @@
-package com.example.coroutinesdemo3
+package com.example.coroutinesdemo5
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
-import com.example.coroutinesdemo3.databinding.ActivityMainBinding
+import com.example.coroutinesdemo5.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +18,8 @@ class MainActivity : AppCompatActivity() {
             binding.tvCount.text = count++.toString()
         }
         binding.btnDownloadUserData.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                downloadUserData()
+            CoroutineScope(Dispatchers.Main).launch {
+                binding.tvUserMessage.text = UserDataManager.getTotalUserCount().toString()
             }
         }
     }
