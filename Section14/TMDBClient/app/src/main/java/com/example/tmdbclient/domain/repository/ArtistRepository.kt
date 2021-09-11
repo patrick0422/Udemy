@@ -1,4 +1,4 @@
-package com.example.tmdbclient.domain
+package com.example.tmdbclient.domain.repository
 
 import com.example.tmdbclient.data.model.artist.Artist
 

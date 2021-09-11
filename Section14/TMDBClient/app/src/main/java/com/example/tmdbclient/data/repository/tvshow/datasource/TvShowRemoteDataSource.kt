@@ -1,4 +1,8 @@
 package com.example.tmdbclient.data.repository.tvshow.datasource
 
-class TvShowRemoteDataSource {
+import com.example.tmdbclient.data.model.tvshow.TvShowList
+import retrofit2.Response
+
+interface TvShowRemoteDataSource {
+    suspend fun getTvShowsFromAPI(): Response<TvShowList>
 }

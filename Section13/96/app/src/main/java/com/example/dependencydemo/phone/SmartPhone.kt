@@ -3,10 +3,6 @@ package com.example.dependencydemo.phone
 import javax.inject.Inject
 
 
-fun main() {
-
-}
-
 class SmartPhone @Inject constructor(
     val battery: Battery,
     val memoryCard: MemoryCard,

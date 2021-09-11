@@ -1,4 +1,4 @@
 package com.example.roomdemo.db
 
-class SubscriberDB {
+abstract class SubscriberDB {
 }

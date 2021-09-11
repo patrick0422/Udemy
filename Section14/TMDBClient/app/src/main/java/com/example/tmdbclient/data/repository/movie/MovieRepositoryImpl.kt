@@ -1,18 +1,16 @@
-package com.example.tmdbclient.data.repository.movie.datasourceimpl
+package com.example.tmdbclient.data.repository.movie
 
-import android.util.Log
 import com.example.tmdbclient.data.model.movie.Movie
-import com.example.tmdbclient.data.repository.movie.datasource.MovieCacheDataSource
-import com.example.tmdbclient.data.repository.movie.datasource.MovieLocalDataSource
-import com.example.tmdbclient.data.repository.movie.datasource.MovieRemoteDataSource
 import com.example.tmdbclient.domain.repository.MovieRepository
+import com.example.tmdbclient.data.repository.movie.datasource.*
 import java.lang.Exception
+import android.util.Log
 
 class MovieRepositoryImpl(
     private val movieRemoteDataSource: MovieRemoteDataSource,
     private val movieLocalDataSource: MovieLocalDataSource,
     private val movieCacheDataSource: MovieCacheDataSource
-): MovieRepository {
+) : MovieRepository {
     override suspend fun getMovies(): List<Movie>? = getMoviesFromCache()
 
     override suspend fun updateMovies(): List<Movie>? {
@@ -32,23 +30,25 @@ class MovieRepositoryImpl(
             val response = movieRemoteDataSource.getMovies()
             val body = response.body()
 
-            if(body != null) {
-              movieList = body.movies
+            if (body != null) {
+                movieList = body.movies
             }
-        } catch(exception: Exception) {
+        } catch (exception: Exception) {
             Log.d("myTag", exception.stackTraceToString())
         }
 
         return movieList
     }
+
     suspend fun getMoviesFromDB(): List<Movie> {
         lateinit var movieList: List<Movie>
 
         try {
             movieList = movieLocalDataSource.getMoviesFromDB()
-        } catch(exception: Exception) {
+        } catch (exception: Exception) {
             Log.d("myTag", exception.stackTraceToString())
         }
+
         if (movieList.isNotEmpty()) {
             return movieList
         } else {
@@ -58,12 +58,13 @@ class MovieRepositoryImpl(
 
         return movieList
     }
+
     suspend fun getMoviesFromCache(): List<Movie> {
         lateinit var movieList: List<Movie>
 
         try {
             movieList = movieCacheDataSource.getMoviesFromCache()
-        } catch(exception: Exception) {
+        } catch (exception: Exception) {
             Log.d("myTag", exception.stackTraceToString())
         }
 
