@@ -1,4 +1,4 @@
-package com.example.foodyclone
+package com.example.foodyclone.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.foodyclone.R
 import com.example.foodyclone.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
