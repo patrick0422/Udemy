@@ -1,6 +1,7 @@
-package com.example.foodyclone
+package com.example.foodyclone.di
 
-import com.example.foodyclone.Constants.Companion.BASE_URL
+import com.example.foodyclone.util.Constants.Companion.BASE_URL
+import com.example.foodyclone.data.network.FoodRecipesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

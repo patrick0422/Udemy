@@ -1,4 +1,4 @@
-package com.example.foodyclone
+package com.example.foodyclone.util
 
 class Constants {
     companion object {

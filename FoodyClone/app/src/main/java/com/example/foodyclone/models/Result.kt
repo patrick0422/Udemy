@@ -1,7 +1,9 @@
 package com.example.foodyclone.models
 
-
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.RawValue
+import kotlinx.parcelize.Parcelize
 
 data class Result(
     @SerializedName("aggregateLikes")
